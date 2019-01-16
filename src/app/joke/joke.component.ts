@@ -124,11 +124,13 @@ export class JokeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.jokes = JOKES;
+    this.starredJokes = [];
     try {
-      this.starredJokes = JSON.parse(localStorage.getItem(this.storageKey));
+      if (localStorage.getItem(this.storageKey)) {
+        this.starredJokes = JSON.parse(localStorage.getItem(this.storageKey));
+      }
     } catch (e) {
       console.debug(e);
-      this.starredJokes = [];
     } finally { }
   }
 
