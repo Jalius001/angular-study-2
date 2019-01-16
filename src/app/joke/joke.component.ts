@@ -109,9 +109,12 @@ export class JokeStarredListComponent implements OnInit {
 @Component({
   selector: 'app-joke-list',
   template: `
-    <app-joke-starred-list  [jokes]="starredJokes" (jokeListUnstarEvent)="unstarJoke($event)"></app-joke-starred-list>
+    <app-joke-starred-list [jokes]="starredJokes"
+                   (jokeListUnstarEvent)="unstarJoke($event)"></app-joke-starred-list>
     <app-joke-form (jokeCreatedEvent)="addJoke($event)"></app-joke-form>
-    <app-joke-item *ngFor="let j of jokes" [joke]="j" (jokeStarEvent)="starJoke($event)" (jokeDeleteEvent)="deleteJoke($event)"></app-joke-item>`,
+    <app-joke-item *ngFor="let j of jokes" [joke]="j"
+                   (jokeStarEvent)="starJoke($event)"
+                   (jokeDeleteEvent)="deleteJoke($event)"></app-joke-item>`,
   styleUrls: ['joke.component.styl']
 })
 export class JokeComponent implements OnInit, OnDestroy {
