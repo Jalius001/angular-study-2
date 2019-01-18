@@ -7,48 +7,7 @@ interface Ability {
 class People {
 
   private name: string;
-  protected abilities: Map<string, Function> = new class implements Map<string, Function> {
-    readonly [Symbol.toStringTag]: string;
-    readonly size: number;
-
-    [Symbol.iterator](): IterableIterator<[string, Function]> {
-      return undefined;
-    }
-
-    clear(): void {
-    }
-
-    delete(key: string): boolean {
-      return false;
-    }
-
-    entries(): IterableIterator<[string, Function]> {
-      return undefined;
-    }
-
-    forEach(callbackfn: (value: Function, key: string, map: Map<string, Function>) => void, thisArg?: any): void {
-    }
-
-    get(key: string): Function | undefined {
-      return undefined;
-    }
-
-    has(key: string): boolean {
-      return false;
-    }
-
-    keys(): IterableIterator<string> {
-      return undefined;
-    }
-
-    set(key: string, value: Function): this {
-      return undefined;
-    }
-
-    values(): IterableIterator<Function> {
-      return undefined;
-    }
-  };
+  protected abilities: Map<string, Function> = new Map<string, Function>();
 
   constructor(name: string) {
     this.name = name;
