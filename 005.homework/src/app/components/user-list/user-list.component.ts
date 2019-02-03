@@ -30,15 +30,16 @@ export class UserListComponent implements OnInit {
     if (pos >= this.users.length || pos < 0) {
       return;
     }
-    this.usersService.getUsers().pipe(take(1)).subscribe( user => {
+    this.usersService.getUsers(1).subscribe( user => {
       console.log(`Retrieved user: ${user.name}`);
       this.users[pos] = user;
     });
   }
   refreshUsers(event?: any) {
     console.log(event);
-    this.usersService.getUsers().pipe(take(this.maxUsers), toArray()).subscribe( arr => {
-      this.users = [...arr];
+    let index = 0;
+    this.usersService.getUsers().subscribe( user => {
+      this.users[index++] = user;
     });
   }
 }
