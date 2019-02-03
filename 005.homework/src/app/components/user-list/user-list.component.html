@@ -1,0 +1,12 @@
+<mat-card class="user-card-list">
+  <mat-card-header>
+    <mat-card-title><tr><td>User list</td><td align="right"><button mat-button color="accent" (click)="refreshUsers($event)">Refresh</button></td></mat-card-title>
+    <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+  </mat-card-header>
+  <mat-card-content>
+      <app-user-item *ngFor="let user of users; index as i;" [user]="user" [index]="i" (userDeletedEvent)="deleteUser($event)"></app-user-item>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="refreshUsers($event)">REFRESH</button>
+  </mat-card-actions>
+</mat-card>
